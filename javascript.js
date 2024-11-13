@@ -6,7 +6,7 @@ let currentlyPlaying = null; // Track the currently playing song
 
 
 async function getSongs() {
-  const response = await fetch('https://raw.githubusercontent.com/abhishek-arch/spotify-clone/main/songs.json');
+  const response = await fetch('https://github.com/abhishek-arch/spotify-clone/tree/6ba64f97c1dfb4ed59a9eaaa44ea27c019c63e2c/songs');
   const songs = await response.json();
   return songs;
 }
