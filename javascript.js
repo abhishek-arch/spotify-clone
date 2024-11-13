@@ -6,7 +6,7 @@ let currentlyPlaying = null; // Track the currently playing song
 
 
 async function getSongs() {
-  let a = await fetch("http://127.0.0.1:3000/songs");
+  let a = await fetch("http://127.0.0.1:5500/songs");
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -69,4 +69,5 @@ async function main() {
 //   originalplaybutton = playButtonElement.innerHTML;
 //   console.log(originalplaybutton);
   main();
+  console.log("hellohow are youy")
 
