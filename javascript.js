@@ -16,7 +16,7 @@ async function main() {
   let songs = await getSongs();
   let songul = document.querySelector(".songlist").getElementsByTagName("ul")[0];
   for (const song of songs) {
-    songul.innerHTML += `<li> ${song.replaceAll("%20", " ")} </li>`;
+    songul.innerHTML += `<li> ${song.replace(/\%20/g, " ")} </li>`;
   }
 
   Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
@@ -24,7 +24,6 @@ async function main() {
       playMusic(e.innerHTML.trim());
     });
   });
-
 }
 
 // const playMusic = (track) => {
