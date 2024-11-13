@@ -5,27 +5,16 @@ let currentlyPlaying = null; // Track the currently playing song
 
 
 
-async function getSongs() {
-  let a = await fetch("http://127.0.0.1:5500/songs");
-  let response = await a.text();
-  let div = document.createElement("div");
-  div.innerHTML = response;
-  let as = div.getElementsByTagName("a");
-  let songs = [];
-  for (let index = 0; index < as.length; index++) {
-    const element = as[index];
-    if (element.href.endsWith("mp3")) {
-      songs.push(element.href.split("/songs/")[1]);
-    }
-  }
-  return songs;
+ async function getSongs() {
+  // Specify song files manually
+  return ["song1.mp3", "song2.mp3", "song3.mp3"]; // Replace with your actual song filenames
 }
 
 async function main() {
   let songs = await getSongs();
   let songul = document.querySelector(".songlist").getElementsByTagName("ul")[0];
   for (const song of songs) {
-    songul.innerHTML += `<li> ${song.replaceAll("%20", " ")} </li>`;
+    songul.innerHTML += `<li> ${song} </li>`;
   }
 
   Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
