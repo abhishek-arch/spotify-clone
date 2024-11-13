@@ -6,20 +6,11 @@ let currentlyPlaying = null; // Track the currently playing song
 
 
 async function getSongs() {
-  let a = await fetch(`/${songs}/`);
-  let response = await a.text();
-  let div = document.createElement("div");
-  div.innerHTML = response;
-  let as = div.getElementsByTagName("a");
-  let songs = [];
-  for (let index = 0; index < as.length; index++) {
-    const element = as[index];
-    if (element.href.endsWith("mp3")) {
-      songs.push(element.href.split(`/${songs}/`)[1]);
-    }
-  }
+  const response = await fetch('https://raw.githubusercontent.com/abhishek-arch/spotify-clone/main/songs.json');
+  const songs = await response.json();
   return songs;
 }
+
 
 async function main() {
   let songs = await getSongs();
