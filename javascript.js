@@ -6,17 +6,26 @@ let currentlyPlaying = null; // Track the currently playing song
 
 
 async function getSongs() {
-  const response = await fetch('https://github.com/abhishek-arch/spotify-clone/tree/6ba64f97c1dfb4ed59a9eaaa44ea27c019c63e2c/songs');
-  const songs = await response.json();
+  let a = await fetch("http://127.0.0.1:5500/songs");
+  let response = await a.text();
+  let div = document.createElement("div");
+  div.innerHTML = response;
+  let as = div.getElementsByTagName("a");
+  let songs = [];
+  for (let index = 0; index < as.length; index++) {
+    const element = as[index];
+    if (element.href.endsWith("mp3")) {
+      songs.push(element.href.split("/songs/")[1]);
+    }
+  }
   return songs;
 }
-
 
 async function main() {
   let songs = await getSongs();
   let songul = document.querySelector(".songlist").getElementsByTagName("ul")[0];
   for (const song of songs) {
-    songul.innerHTML += `<li> ${song.replace(/\%20/g, " ")} </li>`;
+    songul.innerHTML += `<li> ${song.replaceAll("%20", " ")} </li>`;
   }
 
   Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
@@ -24,6 +33,7 @@ async function main() {
       playMusic(e.innerHTML.trim());
     });
   });
+
 }
 
 // const playMusic = (track) => {
@@ -58,6 +68,6 @@ async function main() {
 //   const playButtonElement = document.getElementsByClassName("playbutton")[0];
 //   originalplaybutton = playButtonElement.innerHTML;
 //   console.log(originalplaybutton);
-window.onload = main;
+  main();
   console.log("hellohow are youy")
 
