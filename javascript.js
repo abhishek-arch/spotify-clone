@@ -58,6 +58,6 @@ async function main() {
 //   const playButtonElement = document.getElementsByClassName("playbutton")[0];
 //   originalplaybutton = playButtonElement.innerHTML;
 //   console.log(originalplaybutton);
-  main();
+window.onload = main;
   console.log("hellohow are youy")
 
