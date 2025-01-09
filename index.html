@@ -4,39 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotify</title>
-     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="cs/style.css" />
     <link rel="stylesheet" href="cs/utility.css" />
-    
   </head>
   <body>
     <div class="container">
       <div class="left">
+        <div class="cross">
+          <img width="30" class="invert close" src="img/close.svg" alt="" />
+        </div>
         <div class="left-top bg-grey rounded">
           <div class="logo invert m-1">
             <img src="logo.svg" alt="" srcset="" />
           </div>
           <ul class="navbar">
             <li class="invert">
-              <img height="25px" width="25px" src="home.svg" alt="" /><span>Home</span>
+              <img height="25px" width="25px" src="home.svg" alt="" /><span
+                >Home</span
+              >
             </li>
-            <li style="margin-top: 15px;">
-                <img height="25" class="search" src="search.svg" alt="" /><span style="color: white;"
-                  >Search
-                </span>
+            <li style="margin-top: 15px">
+              <img height="25" class="search" src="search.svg" alt="" /><span
+                style="color: white"
+                >Search
+              </span>
             </li>
           </ul>
         </div>
         <div class="library rounded bg-grey">
           <div class="liblogo">
-
-            <div class="libsvg invert"><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" class="Svg-sc-ytk21e-0 bneLcE"><path d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"></path></svg> </div>
-            <h2 style="font-size: 18px; font-weight: 700; color: #656565;">Your Library</h2>
+            <div class="libsvg invert">
+              <svg
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                class="Svg-sc-ytk21e-0 bneLcE"
+              >
+                <path
+                  d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
+                ></path>
+              </svg>
+            </div>
+            <h2 style="font-size: 18px; font-weight: 700; color: #656565">
+              Your Library
+            </h2>
           </div>
-          <div style="color: white;" class="songlist">
-            <ul>
-
-            </ul>
+          <div style="color: white" class="songlist">
+            <ul></ul>
           </div>
         </div>
         <div class="legal-information">
@@ -47,30 +63,21 @@
             <li>Cookies</li>
             <li>About Ads</li>
             <li>Accessbilities</li>
-          
           </ul>
-          <div class="language-selector">
+          <!-- <div class="language-selector">
             <button>
               <img src="globe-alt-svgrepo-com.svg" alt="Language Icon" height="20" />
               English
             </button>
-          </div>
-         
+          </div> -->
         </div>
       </div>
-
-
-
-
-
-
-
-
 
       <div class="right">
         <header>
           <div class="header">
-            <div class="left-arrow">
+            <div class="flex justify-center items-center left-arrow">
+              <img class="invert hamburger" src="img/hamburger.svg" alt="" />
               <svg
                 width="24"
                 height="24"
@@ -102,37 +109,59 @@
                 />
               </svg>
             </div>
-            <div class="right-arrow"></div>
+
             <div class="buttons">
               <button class="signupbtn">sign up</button>
               <button class="loginbtn">Log in</button>
             </div>
           </div>
         </header>
+        <div class="spotifyplaylist invert"><h1>Spotift Playlists</h1></div>
         <div class="songcontainer">
-          <div class="aaski Box__BoxComponent-sc-y4nds-0 kchksF Box-sc-1njtxi4-0 hscyXl gOunP9rbS1ay5hnpmJ4j" data-encore-id="card" role="group" aria-labelledby="card-title-home-card-spotify:album:0Rkv5iqjF2uenfL0OVB8hg" data-testid="home-card"><div class="CardLink-sc-1ut6cns-0 jUqUbg"></div><div id="onClickHinthome-card-spotify:album:0Rkv5iqjF2uenfL0OVB8hg" style="display: none;"></div><img alt="" data-encore-id="image" src="https://i.scdn.co/image/ab67616d00001e026404721c1943d5069f0805f3" class="Image-sc-1u215sg-3 kOChlU" style="min-inline-size: 152px;"><div class="Areas__InteractiveArea-sc-1tea2mc-0 Areas__MainArea-sc-1tea2mc-1 MWEhk kLALqL"><div class="Areas__InteractiveArea-sc-1tea2mc-0 Areas__Column-sc-1tea2mc-2 MWEhk cuoMqc"><a class="encore-text encore-text-body-medium ListRowTitle__ListRowText-sc-1xe2if1-1 eFGzcP" data-encore-id="listRowTitle" href="album/0Rkv5iqjF2uenfL0OVB8hg" title="Aashiqui 2"><span class="ListRowTitle__LineClamp-sc-1xe2if1-0 lmgIvZ">Aashiqui 2</span></a></div></div></div>
-          <div class="aaski Box__BoxComponent-sc-y4nds-0 kchksF Box-sc-1njtxi4-0 hscyXl gOunP9rbS1ay5hnpmJ4j" data-encore-id="card" role="group" aria-labelledby="card-title-home-card-spotify:album:0Rkv5iqjF2uenfL0OVB8hg" data-testid="home-card"><div class="CardLink-sc-1ut6cns-0 jUqUbg"></div><div id="onClickHinthome-card-spotify:album:0Rkv5iqjF2uenfL0OVB8hg" style="display: none;"></div><img alt="" data-encore-id="image" src="https://i.scdn.co/image/ab67616d00001e026404721c1943d5069f0805f3" class="Image-sc-1u215sg-3 kOChlU" style="min-inline-size: 152px;"><div class="Areas__InteractiveArea-sc-1tea2mc-0 Areas__MainArea-sc-1tea2mc-1 MWEhk kLALqL"><div class="Areas__InteractiveArea-sc-1tea2mc-0 Areas__Column-sc-1tea2mc-2 MWEhk cuoMqc"><a class="encore-text encore-text-body-medium ListRowTitle__ListRowText-sc-1xe2if1-1 eFGzcP" data-encore-id="listRowTitle" href="album/0Rkv5iqjF2uenfL0OVB8hg" title="Aashiqui 2"><span class="ListRowTitle__LineClamp-sc-1xe2if1-0 lmgIvZ">Aashiqui 2</span></a></div></div></div>
+         
+         
+         
           
-       
-        </div>
+         
+          
+
+
+
+
+
+          </div>
+         
+         
 
         <div class="playbar">
-          <div class="prev_play_next flex ">
-            <div class="previous invert"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-              <path d="M8.06492 12.6258C8.31931 13.8374 9.67295 14.7077 12.3802 16.4481C15.3247 18.3411 16.797 19.2876 17.9895 18.9229C18.3934 18.7994 18.7654 18.5823 19.0777 18.2876C20 17.4178 20 15.6118 20 12C20 8.38816 20 6.58224 19.0777 5.71235C18.7654 5.41773 18.3934 5.20057 17.9895 5.07707C16.797 4.71243 15.3247 5.6589 12.3802 7.55186C9.67295 9.29233 8.31931 10.1626 8.06492 11.3742C7.97836 11.7865 7.97836 12.2135 8.06492 12.6258Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-              <path d="M4 4L4 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-          </svg></div><div class="invert playbutton">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-              <path d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-          </svg>
+          <div class="abovebar">
+            <div class="songinfo"></div>
+            <div class="prev_play_next flex">
+              <div class="previous invert">
+                <img id="previous" src="img/previous.svg" alt="" />
+              </div>
+              <div class="invert playbutton">
+                <img id="play" src="img/play.svg" alt="" />
+              </div>
+              <div class="next invert">
+                <img id="next" src="img/next.svg" alt="" />
+              </div>
+            </div>
+            <div class="songduration">
+              <div class="songtime"></div>
+              <div class="invert volume">
+                <img width="25px" src="img/volume.svg" alt="" />
+                <div class="range">
+                  <input type="range" name="volume" />
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="next invert"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-            <path d="M15.9351 12.6258C15.6807 13.8374 14.327 14.7077 11.6198 16.4481C8.67528 18.3411 7.20303 19.2876 6.01052 18.9229C5.60662 18.7994 5.23463 18.5823 4.92227 18.2876C4 17.4178 4 15.6118 4 12C4 8.38816 4 6.58224 4.92227 5.71235C5.23463 5.41773 5.60662 5.20057 6.01052 5.07707C7.20304 4.71243 8.67528 5.6589 11.6198 7.55186C14.327 9.29233 15.6807 10.1626 15.9351 11.3742C16.0216 11.7865 16.0216 12.2135 15.9351 12.6258Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-            <path d="M20 5V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-        </svg></div>
 
+          <div class="seekbar">
+            <div class="circle"></div>
           </div>
-         </div>
+        </div>
       </div>
     </div>
     <script src="javascript.js"></script>
