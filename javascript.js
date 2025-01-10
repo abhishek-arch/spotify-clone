@@ -30,7 +30,7 @@ function formatSeconds(seconds) {
 let currentsong = new Audio();
 async function getsongs(folder) {
   currfolder = folder;
-  let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
+  let a = await fetch(`https://github.com/abhishek-arch/spotify-clone.git/${folder}/`);
   let response = await a.text();
   // console.log(response);
   let div = document.createElement("div");
@@ -84,7 +84,7 @@ const playMusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-  let a = await fetch(`http://127.0.0.1:3000/songs/`);
+  let a = await fetch(`https://github.com/abhishek-arch/spotify-clone.git/songs/`);
   let response = await a.text()
  
   let div = document.createElement("div");
@@ -98,12 +98,12 @@ async function displayAlbums() {
           let folder = e.href.split("/").slice(-2)[0]
           
           // Get the metadata of the folder
-          let a = await fetch(`/songs/${folder}/info.json`)
+          let a = await fetch(`https://github.com/abhishek-arch/spotify-clone.git/songs/${folder}/info.json`)
           let response = await a.json(); 
           cardContainer.innerHTML = cardContainer.innerHTML + ` <div  data-folder="${folder}" class="card" id="${folder}">
           
 
-          <img width = "400" src="/songs/${folder}/cover.jpg" alt="">
+          <img width = "350" src="/songs/${folder}/cover.jpg" alt="">
           <h1 style = "font-size:45px" class = "invert">${response.title}</h2>
           <h2 style = "font-size:31px"  class = "invert">${response.description}</p>
           <div class="button">
@@ -124,7 +124,7 @@ async function displayAlbums() {
   Array.from(anchor).forEach( async e => {
     if(e.href.includes("/songs")){
       let folder = (e.href.split("/").slice(-2) [0])
-      let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`);
+      let a = await fetch(`https://github.com/abhishek-arch/spotify-clone.git/songs/${folder}/info.json`);
       let response = await a.json();
       console.log(response)
     }
