@@ -30,7 +30,7 @@ function formatSeconds(seconds) {
 let currentsong = new Audio();
 async function getsongs(folder) {
   currfolder = folder;
-  let a = await fetch(`https://abhishek-arch.github.io/spotify-clone${folder}/`);
+  let a = await fetch(`https://abhishek-arch.github.io/spotify-clone/${folder}/`);
   let response = await a.text();
   // console.log(response);
   let div = document.createElement("div");
