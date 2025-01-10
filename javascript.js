@@ -96,16 +96,16 @@ async function displayAlbums() {
       const e = array[index]; 
       if (e.href.includes("/songs") && !e.href.includes(".htaccess")) {
           let folder = e.href.split("/").slice(-2)[0]
-          console.log(folder);
+          
           // Get the metadata of the folder
           let a = await fetch(`/songs/${folder}/info.json`)
           let response = await a.json(); 
-          cardContainer.innerHTML = cardContainer.innerHTML + ` <div data-folder="${folder}" class="card">
+          cardContainer.innerHTML = cardContainer.innerHTML + ` <div  data-folder="${folder}" class="card" id="${folder}">
           
 
-          <img src="/songs/${folder}/cover.jpg" alt="">
-          <h1 class = "invert">${response.title}</h2>
-          <h2 class = "invert">${response.description}</p>
+          <img width = "400" src="/songs/${folder}/cover.jpg" alt="">
+          <h1 style = "font-size:45px" class = "invert">${response.title}</h2>
+          <h2 style = "font-size:31px"  class = "invert">${response.description}</p>
           <div class="button">
               <img src="img/button.svg" alt="" />
             </div>
@@ -198,7 +198,22 @@ async function main() {
     .addEventListener("change", (e) => {
       console.log("volume is ", e.target.value, "/100");
       currentsong.volume = parseInt(e.target.value) / 100;
+      console.log(currentsong.volume);
     });
   
+document.querySelector(".volume>img").addEventListener("click", (e) => {
+  if (currentsong.volume === 0) {
+    currentsong.volume = 0.1;
+    e.target.src = "img/volume.svg";
+    document.querySelector(".range")
+    .getElementsByTagName("input")[0].value = 40;
+
+  } else {
+    currentsong.volume = 0;
+    e.target.src = "img/mute.svg";
+    document.querySelector(".range")
+    .getElementsByTagName("input")[0].value = 0;
+  }
+});
 }
 main();
