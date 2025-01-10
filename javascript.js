@@ -30,7 +30,7 @@ function formatSeconds(seconds) {
 let currentsong = new Audio();
 async function getsongs(folder) {
   currfolder = folder;
-  let a = await fetch(`https://abhishek-arch.github.io/spotify-clone/${folder}/`);
+  let a = await fetch(`/${folder}/`);
   let response = await a.text();
   // console.log(response);
   let div = document.createElement("div");
@@ -84,7 +84,7 @@ const playMusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-  let a = await fetch(`https://abhishek-arch.github.io/spotify-clone/songs/`);
+  let a = await fetch(`/songs/`);
   let response = await a.text()
  
   let div = document.createElement("div");
@@ -98,7 +98,7 @@ async function displayAlbums() {
           let folder = e.href.split("/").slice(-2)[0]
           
           // Get the metadata of the folder
-          let a = await fetch(`https://abhishek-arch.github.io/spotify-clone/songs/${folder}/info.json`)
+          let a = await fetch(`/songs/${folder}/info.json`)
           let response = await a.json(); 
           cardContainer.innerHTML = cardContainer.innerHTML + ` <div  data-folder="${folder}" class="card" id="${folder}">
           
