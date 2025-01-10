@@ -30,13 +30,14 @@ function formatSeconds(seconds) {
 let currentsong = new Audio();
 async function getsongs(folder) {
   currfolder = folder;
-  let a = await fetch(`https://github.com/abhishek-arch/spotify-clone.git/${folder}/`);
+  let a = await fetch(`https://abhishek-arch.github.io/spotify-clone/${folder}/`);
   let response = await a.text();
-  // console.log(response);
+  
   let div = document.createElement("div");
   div.innerHTML = response;
   let as = div.getElementsByTagName("a");
   sangeet = [];
+  
   for (let index = 0; index < as.length; index++) {
     element = as[index];
     if (element.href.endsWith(".mp3")) {
@@ -44,23 +45,24 @@ async function getsongs(folder) {
     }
   }
 
-  let songUL = document
-    .querySelector(".songlist")
-    .getElementsByTagName("ul")[0];
+  let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0];
   songUL.innerHTML = "";
   for (const song of sangeet) {
     songUL.innerHTML =
       songUL.innerHTML +
-      `<li> <img class="invert" src="img/music.svg" width="34" height="34" alt="">
-                <div class="info">
-                  <div> ${song.replaceAll("%20", " ")}</div>
-                  <div> Abhi</div>
-                </div>
-                <div class="playnow flex justify-center items-center">
-                  <span>Play Now</span>
-                  <img class="invert" src="img/play.svg" width="24" alt="">
-                </div></li>`;
+      `<li>
+        <img class="invert" src="img/music.svg" width="34" height="34" alt="">
+        <div class="info">
+          <div> ${song.replaceAll("%20", " ")}</div>
+          <div> Abhi</div>
+        </div>
+        <div class="playnow flex justify-center items-center">
+          <span>Play Now</span>
+          <img class="invert" src="img/play.svg" width="24" alt="">
+        </div>
+      </li>`;
   }
+
   Array.from(
     document.querySelector(".songlist").getElementsByTagName("li")
   ).forEach((e) => {
@@ -71,65 +73,35 @@ async function getsongs(folder) {
 
   return sangeet;
 }
-const playMusic = (track, pause = false) => {
-  // let audio = new Audio("/songs/" + track)
-  currentsong.src = `/${currfolder}/` + track;
-
-  if (!pause) {
-    currentsong.play();
-    play.src = "img/pause.svg";
-  }
-  document.querySelector(".songinfo").innerHTML = decodeURI(track);
-  document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
-};
 
 async function displayAlbums() {
-  let a = await fetch(`https://github.com/abhishek-arch/spotify-clone.git/songs/`);
-  let response = await a.text()
- 
+  let a = await fetch(`https://abhishek-arch.github.io/spotify-clone/songs/`);
+  let response = await a.text();
+  
   let div = document.createElement("div");
   div.innerHTML = response;
   let anchor = div.getElementsByTagName("a");
-  let cardContainer = document.querySelector(".songcontainer")
-  let array = Array.from(anchor)
+  let cardContainer = document.querySelector(".songcontainer");
+  let array = Array.from(anchor);
+
   for (let index = 0; index < array.length; index++) {
-      const e = array[index]; 
-      if (e.href.includes("/songs") && !e.href.includes(".htaccess")) {
-          let folder = e.href.split("/").slice(-2)[0]
-          
-          // Get the metadata of the folder
-          let a = await fetch(`https://github.com/abhishek-arch/spotify-clone.git/songs/${folder}/info.json`)
-          let response = await a.json(); 
-          cardContainer.innerHTML = cardContainer.innerHTML + ` <div  data-folder="${folder}" class="card" id="${folder}">
-          
+    const e = array[index];
+    if (e.href.includes("/songs") && !e.href.includes(".htaccess")) {
+      let folder = e.href.split("/").slice(-2)[0];
 
-          <img width = "350" src="/songs/${folder}/cover.jpg" alt="">
-          <h1 style = "font-size:45px" class = "invert">${response.title}</h2>
-          <h2 style = "font-size:31px"  class = "invert">${response.description}</p>
-          <div class="button">
-              <img src="img/button.svg" alt="" />
-            </div>
-      </div>`
-      }
-  }
-
-
-
-
-
-
-
-
-
-  Array.from(anchor).forEach( async e => {
-    if(e.href.includes("/songs")){
-      let folder = (e.href.split("/").slice(-2) [0])
-      let a = await fetch(`https://github.com/abhishek-arch/spotify-clone.git/songs/${folder}/info.json`);
+      let a = await fetch(`https://abhishek-arch.github.io/spotify-clone/songs/${folder}/info.json`);
       let response = await a.json();
-      console.log(response)
+      cardContainer.innerHTML = cardContainer.innerHTML + `
+        <div data-folder="${folder}" class="card" id="${folder}">
+          <img width="350" src="https://abhishek-arch.github.io/spotify-clone/songs/${folder}/cover.jpg" alt="">
+          <h1 style="font-size:45px" class="invert">${response.title}</h1>
+          <h2 style="font-size:31px" class="invert">${response.description}</h2>
+          <div class="button">
+            <img src="img/button.svg" alt="" />
+          </div>
+        </div>`;
     }
-   
-  })
+  }
 
   Array.from(document.getElementsByClassName("card")).forEach((e) => {
     e.addEventListener("click", async (item) => {
@@ -139,7 +111,7 @@ async function displayAlbums() {
     });
   });
 }
-displayAlbums()
+displayAlbums();
 
 async function main() {
   await getsongs("songs/ncs");
