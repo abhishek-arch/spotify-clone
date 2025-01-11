@@ -30,7 +30,7 @@ function formatSeconds(seconds) {
 let currentsong = new Audio();
 async function getsongs(folder) {
   currfolder = folder;
-  let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
+  let a = await fetch(`/${folder}/`);
   let response = await a.text();
   // console.log(response);
   let div = document.createElement("div");
@@ -84,7 +84,7 @@ const playMusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-  let a = await fetch(`http://127.0.0.1:3000/songs/`);
+  let a = await fetch(`/songs/`);
   let response = await a.text()
  
   let div = document.createElement("div");
@@ -124,7 +124,7 @@ async function displayAlbums() {
   Array.from(anchor).forEach( async e => {
     if(e.href.includes("/songs")){
       let folder = (e.href.split("/").slice(-2) [0])
-      let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`);
+      let a = await fetch(`/${folder}/info.json`);
       let response = await a.json();
       console.log(response)
     }
